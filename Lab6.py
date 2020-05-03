@@ -153,7 +153,8 @@ for i in range(len(matrix_x)):
         x_1, x_2, x_3 = arr_x
     matrix_x[i] = [x_1, x_2, x_3, x_1 * x_2, x_1 * x_3, x_2 * x_3, x_1 * x_2 * x_3, x_1 ** 2, x_2 ** 2, x_3 ** 2]
 
-while 1:
+numberOfCycles = 100
+while numberOfCycles:
     matrix_y = matrixGenerator()
     middle_x = middleValue(matrix_x, 0)  # Середні х по колонкам
     middle_y = middleValue(matrix_y, 1)  # Середні у по рядкам
@@ -233,3 +234,6 @@ while 1:
         break
     else:
         print("Рівняння регресії неадекватне стосовно оригіналу\n Проводимо експеремент повторно!")
+        numberOfCycles -= 1
+        if numberOfCycles == 0:
+            print("Минуло занадто багато циклів виконання програми, а рівняння регресії залишається неадекватним оригіналу!")
